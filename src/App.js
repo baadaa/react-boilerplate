@@ -1,30 +1,32 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import { Route, Link } from "react-router-dom";
 
-const Blank = styled.div`
-  width: 100px;
-  height: 100px;
-  background: var(--pink);
-  color:#fff;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
+const Home = () => <h2>Home</h2>;
+const Area1 = () => <h2>Area1</h2>;
+const Area2 = () => <h2>Area2</h2>;
 
 class App extends React.Component {
-  state = {
-
-  }
+  state = {};
 
   render() {
     return (
-      <div style={{ width: '100vw', height: '100vh', display: 'flex', alignItems: 'center'}}>
-      <Blank>
-        <h1>test</h1>
-      </Blank>
-      </div>
-    )
+      <>
+        <ul>
+          <li>
+            <Link to="/">/</Link>
+          </li>
+          <li>
+            <Link to="/area1">/area1</Link>
+          </li>
+          <li>
+            <Link to="/area2">/area2</Link>
+          </li>
+        </ul>
+        <Route exact path="/" component={Home} />
+        <Route path="/area1" component={Area1} />
+        <Route path="/area2" component={Area2} />
+      </>
+    );
   }
 }
 
